@@ -8,7 +8,7 @@ Bundler.require(:default, ENV['RACK_ENV'])
 require_relative 'namespace_tools'
 
 REDIS_PORT = ENV['REDIS_PORT'] || 6379
-REDIS_HOST = ENV['REDIS_HOST'] || 'localhost'
+REDIS_HOST = ENV['REDIS_HOST'] || ''
 
 GROUPED_HELP_FILE = File.expand_path("redis-doc/grouped_help.json", File.dirname(__FILE__))
 GROUPED_HELP = JSON.parse File.read(GROUPED_HELP_FILE)
@@ -241,7 +241,8 @@ class TryRedis < Sinatra::Base
     logger = if test?
                nil
              else
-               Logger.new(File.join(File.dirname(__FILE__),'log','redis.log'))
+              #  Logger.new(File.join(File.dirname(__FILE__),'log','redis.log'))
+              Logger.new(File.join('/tmp/redis-console','logs','redis.log'))
              end
 
     if logger
@@ -251,6 +252,7 @@ class TryRedis < Sinatra::Base
     raw_redis = Redis.new(
       :host => REDIS_HOST,
       :port => REDIS_PORT,
+      :password => "",
       :logger => logger
     )
 

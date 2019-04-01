@@ -14,8 +14,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.3.2)
-      rack (>= 1.1, < 2.0)
+    puma (3.12.1)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -46,7 +45,7 @@ DEPENDENCIES
   haml (~> 4.0.0)
   minitest (~> 5.0.6)
   pry
-  puma (~> 2.3.1)
+  puma (~> 3.12.1)
   rack-test
   rake
   rdiscount (~> 2.1.7)
@@ -57,4 +56,4 @@ DEPENDENCIES
   sinatra (~> 1.4.3)
 
 BUNDLED WITH
-   1.11.2
+   2.0.1
