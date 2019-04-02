@@ -6,21 +6,32 @@ module NamespaceTools
   SYNTAX_ERROR = {error: "ERR Syntax error"}.freeze
   ARGUMENT_ERROR = -> cmd { {error: "ERR wrong number of arguments for '#{cmd}' command"} }
 
+  # ALLOWED_COMMANDS = %w[
+  #   append echo getrange hmget hsetnx incrbyfloat
+  #   hincrbyfloat decr decrby del discard exec linsert lpushx persist pexpire
+  #   pexpireat ping pttl psetex rpushx setex setrange strlen time zcount
+  #   zrank zremrangebyrank zrevrangebyscore zrevrank exists expire expireat get
+  #   getset hdel hexists hget hgetall hincrby hkeys hlen hmset hset hvals incr
+  #   incrby info keys lindex llen lpop lpush lrange lrem lset ltrim mget mset
+  #   msetnx multi rename renamenx rpop rpoplpush rpush sadd scard sdiff
+  #   sdiffstore set setnx sinter sinterstore sismember smembers smove sort spop
+  #   srandmember srem sunion sunionstore ttl type zadd zcard zincrby zrange
+  #   zrangebyscore zrem zremrangebyscore zrevrange zscore
+  #   scan sscan hscan zscan
+  #   bitcount bitop getbit setbit bitpos
+  #   pfadd pfcount pfmerge
+  #   zrangebylex zrevrangebylex zremrangebylex zlexcount
+  # ]
+
   ALLOWED_COMMANDS = %w[
-    append echo getrange hmget hsetnx incrbyfloat
-    hincrbyfloat decr decrby del discard exec linsert lpushx persist pexpire
-    pexpireat ping pttl psetex rpushx setex setrange strlen time zcount
-    zrank zremrangebyrank zrevrangebyscore zrevrank exists expire expireat get
-    getset hdel hexists hget hgetall hincrby hkeys hlen hmset hset hvals incr
-    incrby info keys lindex llen lpop lpush lrange lrem lset ltrim mget mset
-    msetnx multi rename renamenx rpop rpoplpush rpush sadd scard sdiff
-    sdiffstore set setnx sinter sinterstore sismember smembers smove sort spop
-    srandmember srem sunion sunionstore ttl type zadd zcard zincrby zrange
-    zrangebyscore zrem zremrangebyscore zrevrange zscore
+    echo ping type ttl pttl exists
+    append bitcount get getbit getrange mget strlen
+    hexists hget hgetall hkeys hlen hmget hvals
+    lindex llen lrange
+    scard sdiff sinter sismember smembers srandmember sunion
+    zcard zcount zrange zrangebyscore zrank zrevrange zrevrangebyscore zrevrank zscore
     scan sscan hscan zscan
-    bitcount bitop getbit setbit bitpos
-    pfadd pfcount pfmerge
-    zrangebylex zrevrangebylex zremrangebylex zlexcount
+    info time
   ]
 
   # These are manually converted to integer output
